@@ -8,14 +8,19 @@
 
 # 定制默认IP
 sed -i 's/192.168.1.1/192.168.1.8/g' package/base-files/files/bin/config_generate
+- name: 涡轮增雕进程
+  run: |
+    cd package
+    mkdir openwrt-packages
+    cd openwrt-packages
+    
 
 # 替换默认Argon主题
 rm -rf package/lean/luci-theme-argon
-git clone https://github.com/ysoyipek/luci-theme-netgear
+git clone https://github.com/ysoyipek/luci-theme-netgear.git
 
 # 添加第三方软件包
 git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
-git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 git clone https://github.com/kang-mk/luci-app-smartinfo package/luci-app-smartinfo
 
 
@@ -73,14 +78,12 @@ CONFIG_PACKAGE_ipt2socks=y
 CONFIG_PACKAGE_libev=y
 CONFIG_PACKAGE_libmbedtls=y
 CONFIG_PACKAGE_libsodium=y
-CONFIG_PACKAGE_luci-app-arpbind=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
-CONFIG_PACKAGE_luci-i18n-arpbind-zh-cn=m
 CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
 CONFIG_PACKAGE_shadowsocksr-libev-server=y
 CONFIG_PACKAGE_simple-obfs=y
@@ -107,6 +110,7 @@ CONFIG_PACKAGE_libminiupnpc=y
 CONFIG_PACKAGE_libnatpmp=y
 CONFIG_PACKAGE_luci-lib-fs=y
 CONFIG_PACKAGE_sqm-scripts=y
+CONFIG_PACKAGE_luci-theme-netgear=y
 EOF
 
 # 
