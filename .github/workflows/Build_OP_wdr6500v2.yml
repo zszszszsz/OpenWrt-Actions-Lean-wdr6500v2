@@ -26,6 +26,7 @@ on:
     branches: 
       - master
 
+
 # config触发
 #  paths:
 #    - 'x86_64.config'
